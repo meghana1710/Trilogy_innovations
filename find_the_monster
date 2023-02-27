@@ -1,0 +1,26 @@
+n = int(input())
+q = int(input())
+m = list()
+h = list()
+for i in range(n):
+    temp = list(map(int,input().split(' ')))
+    m.append(temp)
+for i in range(q):
+    temp = list(map(int,input().split(' ')))
+    h.append(temp)
+m = [[1,3,7],[2,5,4],[4,8,6]]
+h = [[3,5],[5,8]]
+total = sum(m[i][1]-m[i][0]+1 for i in range(n))
+for i in range(q):
+    corr = h[i][0]
+    h_s = h[i][1]
+    kill =0
+    for j in range(n):
+        m_s = m[j][2]
+        if((corr-m[j][0])<=(m[j][1]-m[j][0]) and m_s<=h_s):
+            kill+= 1 
+    print(total-kill)
+    total-=kill
+        
+        
+        
